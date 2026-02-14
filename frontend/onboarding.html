@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grief Support Circle - Share Your Journey</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Side Sketch: Constellation/Connection -->
+        <div class="sketch-left fade-in" style="animation-delay: 0.5s">
+            <svg viewBox="0 0 200 600" xmlns="http://www.w3.org/2000/svg" class="sketch-svg">
+                <!-- Abstract constellations representing connection -->
+                <path d="M40 100 L120 180 L80 280 L160 350 M120 180 L40 250" stroke-dasharray="290"
+                    stroke-dashoffset="290" class="draw-path" />
+                <circle cx="40" cy="100" r="2" fill="currentColor" class="pulse-node" />
+                <circle cx="120" cy="180" r="2" fill="currentColor" class="pulse-node" style="animation-delay: 0.2s" />
+                <circle cx="80" cy="280" r="2" fill="currentColor" class="pulse-node" style="animation-delay: 0.4s" />
+                <circle cx="160" cy="350" r="2" fill="currentColor" class="pulse-node" style="animation-delay: 0.6s" />
+                <circle cx="40" cy="250" r="2" fill="currentColor" class="pulse-node" style="animation-delay: 0.8s" />
+
+                <!-- Secondary floaters -->
+                <path d="M150 450 L100 520 L180 550" stroke-dasharray="160" stroke-dashoffset="160" class="draw-path"
+                    style="animation-delay: 0.5s" />
+                <circle cx="150" cy="450" r="1.5" fill="currentColor" class="pulse-node" style="animation-delay: 1s" />
+                <circle cx="100" cy="520" r="1.5" fill="currentColor" class="pulse-node"
+                    style="animation-delay: 1.2s" />
+                <circle cx="180" cy="550" r="1.5" fill="currentColor" class="pulse-node"
+                    style="animation-delay: 1.4s" />
+            </svg>
+        </div>
+
+        <!-- Right Side Sketch: Organic Flow/Growth -->
+        <div class="sketch-right fade-in" style="animation-delay: 0.7s">
+            <svg viewBox="0 0 200 600" xmlns="http://www.w3.org/2000/svg" class="sketch-svg">
+                <!-- Flowing lines representing healing/growth -->
+                <path d="M50 550 C 120 450, 180 350, 60 150" class="draw-path" stroke-dasharray="500"
+                    stroke-dashoffset="500" />
+                <path d="M80 580 C 140 480, 40 250, 120 100" class="draw-path" style="animation-delay: 0.3s"
+                    stroke-dasharray="550" stroke-dashoffset="550" />
+
+                <!-- Floating leaf-like shapes -->
+                <path d="M120 100 Q 130 90 125 110" class="draw-path" style="animation-delay: 1.5s" />
+                <path d="M60 150 Q 50 140 65 160" class="draw-path" style="animation-delay: 1.2s" />
+            </svg>
+        </div>
+
+        <div class="onboarding-card fade-in">
+            <h1>You're Not Alone</h1>
+            <p class="subtitle">Tell us about your journey so we can connect you with others who understand.</p>
+
+            <form id="onboardingForm">
+                <div class="question">
+                    <label>What are you grieving?</label>
+                    <select name="grief_type" required>
+                        <option value="">Select...</option>
+                        <option value="loved_one">Loss of a loved one</option>
+                        <option value="pet">Loss of a pet</option>
+                        <option value="relationship">End of a relationship</option>
+                        <option value="job">Job or career loss</option>
+                        <option value="health">Health or ability</option>
+                        <option value="friendship">Lost friendship</option>
+                        <option value="other">Other loss</option>
+                    </select>
+                </div>
+
+                <div class="question">
+                    <label>How recent is this loss?</label>
+                    <select name="time_frame" required>
+                        <option value="">Select...</option>
+                        <option value="week">This week</option>
+                        <option value="month">This month</option>
+                        <option value="year">This year</option>
+                        <option value="longer">Longer ago</option>
+                    </select>
+                </div>
+
+                <div class="question">
+                    <label>What do you need most right now?</label>
+                    <select name="need" required>
+                        <option value="">Select...</option>
+                        <option value="heard">To be heard</option>
+                        <option value="stories">To hear others' stories</option>
+                        <option value="strategies">Coping strategies</option>
+                        <option value="presence">Just presence</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary">Find My Circle</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cursor.js"></script>
+</body>
+
+</html>

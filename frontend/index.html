@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Grief Support Circle</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Atmospheric Backgrounds -->
+    <div class="top-strap"></div>
+    <div class="ambient-fog"></div>
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Page Content Wrapper -->
+    <div class="page-content">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-orb"></div>
+            <h1 class="fade-in">Welcome to Grief Support Circle 🌿</h1>
+            <div class="hero-divider fade-in" style="animation-delay: 0.1s"></div>
+            <p class="hero-subtitle fade-in" style="animation-delay: 0.2s">
+                A safe, anonymous space to share your journey, find connection, and heal together.
+                You are not alone.
+            </p>
+            <div style="max-width: 300px; width: 100%; position: relative; z-index: 2;">
+                <button class="btn-primary fade-in" style="animation-delay: 0.4s"
+                    onclick="window.location.href='onboarding.html'">Find Your Circle</button>
+            </div>
+        </div>
+
+        <!-- Why This Matters -->
+        <div class="section">
+            <h2 class="scroll-hidden">Why This Matters</h2>
+            <div class="grid-2">
+                <div class="glass-card scroll-hidden" style="transition-delay: 0.1s">
+                    <div class="icon-wrapper">
+                        <span class="icon">🌑</span>
+                    </div>
+                    <h3>Break the Isolation</h3>
+                    <p>Grief often feels lonely. Connecting with others who understand your specific journey creates a
+                        powerful sense of belonging.</p>
+                </div>
+                <div class="glass-card scroll-hidden" style="transition-delay: 0.2s">
+                    <div class="icon-wrapper">
+                        <span class="icon">🛡️</span>
+                    </div>
+                    <h3>Safe & Anonymous</h3>
+                    <p>Share openly without fear of judgment. Our circles are private, moderated, and focused purely on
+                        mutual support.</p>
+                </div>
+                <div class="glass-card scroll-hidden" style="transition-delay: 0.3s">
+                    <div class="icon-wrapper">
+                        <span class="icon">✨</span>
+                    </div>
+                    <h3>Healing Together</h3>
+                    <p>Helping others is a way to help yourself. Shared experiences foster resilience, empathy, and
+                        renewed
+                        hope.</p>
+                </div>
+                <!-- Added 4th card to balance the 2-column grid -->
+                <div class="glass-card scroll-hidden" style="transition-delay: 0.4s">
+                    <div class="icon-wrapper">
+                        <span class="icon">🧠</span>
+                    </div>
+                    <h3>Emotional Growth</h3>
+                    <p>Structure your processing with guided sessions that help you move forward at your own pace.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="section">
+            <h2 class="scroll-hidden">How It Works</h2>
+            <div class="grid-2">
+                <div class="glass-card scroll-hidden">
+                    <div class="step-number">01</div>
+                    <div class="icon-wrapper">
+                        <span class="icon">📝</span>
+                    </div>
+                    <h3>Check In</h3>
+                    <p>Tell us comfortably about your grief journey so we can find the right peers for you.</p>
+                </div>
+                <div class="glass-card scroll-hidden" style="transition-delay: 0.2s">
+                    <div class="step-number">02</div>
+                    <div class="icon-wrapper">
+                        <span class="icon">🤝</span>
+                    </div>
+                    <h3>Get Matched</h3>
+                    <p>Our algorithm connects you with a small group of people experiencing similar loss.</p>
+                </div>
+                <div class="glass-card scroll-hidden" style="transition-delay: 0.4s">
+                    <div class="step-number">03</div>
+                    <div class="icon-wrapper">
+                        <span class="icon">🌿</span>
+                    </div>
+                    <h3>Connect</h3>
+                    <p>Join a guided video or audio circle to share, listen, and support one another.</p>
+                </div>
+                <div class="glass-card scroll-hidden" style="transition-delay: 0.6s">
+                    <div class="step-number">04</div>
+                    <div class="icon-wrapper">
+                        <span class="icon">🕊️</span>
+                    </div>
+                    <h3>Reflect</h3>
+                    <p>Visit the Memorial Garden to leave a stone or read messages of hope from others.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unique Features -->
+        <div class="section">
+            <h2 class="scroll-hidden">Designed for You</h2>
+            <div class="feature-list">
+                <div class="feature-item scroll-hidden">
+                    <span>🫂</span> <strong>Small Groups (Max 5)</strong>
+                </div>
+                <div class="feature-item scroll-hidden" style="transition-delay: 0.1s">
+                    <span>⏳</span> <strong>Timed Sharing</strong>
+                </div>
+                <div class="feature-item scroll-hidden" style="transition-delay: 0.2s">
+                    <span>🤖</span> <strong>AI Safety Aid</strong>
+                </div>
+                <div class="feature-item scroll-hidden" style="transition-delay: 0.3s">
+                    <span>🪨</span> <strong>Memorial Garden</strong>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Grief Support Circle. Built with ❤️ for healing.</p>
+        </footer>
+
+        <script src="js/cursor.js"></script>
+        <script>
+            // Cinematic Scroll Observer
+            document.addEventListener('DOMContentLoaded', () => {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('scroll-visible');
+                            observer.unobserve(entry.target); // Only animate once
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.scroll-hidden').forEach(el => {
+                    observer.observe(el);
+                });
+
+                // Generate Particles
+                const particlesContainer = document.getElementById('particles');
+                for (let i = 0; i < 50; i++) {
+                    const p = document.createElement('div');
+                    p.classList.add('particle');
+                    p.style.left = Math.random() * 100 + 'vw';
+                    p.style.top = Math.random() * 100 + 'vh';
+                    p.style.width = Math.random() * 3 + 'px';
+                    p.style.height = p.style.width;
+                    p.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                    p.style.animationDelay = (Math.random() * 5) + 's';
+                    particlesContainer.appendChild(p);
+                }
+            });
+        </script>
+
+</body>
+
+</html>

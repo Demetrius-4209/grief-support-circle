@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Circle</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="circle-container fade-in">
+        <div class="timer-bar">
+            <div class="timer-text">Round 1: Sharing (3 min each)</div>
+            <div id="timer">20:00</div>
+        </div>
+
+        <!-- Jitsi video embed -->
+        <div id="jitsi-container"></div>
+
+        <div class="circle-controls">
+            <button id="endCircle" class="btn-secondary">Leave Circle Peacefully</button>
+        </div>
+    </div>
+
+    <script src="https://meet.jit.si/external_api.js"></script>
+    <script src="js/circle.js"></script>
+    <script src="js/cursor.js"></script>
+</body>
+
+</html>

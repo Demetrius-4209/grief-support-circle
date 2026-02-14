@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Finding Your Circle...</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="waiting-card fade-in">
+            <div class="pulse-circle"></div>
+            <h1>Finding your circle...</h1>
+            <p>We're connecting you with others who understand your journey.</p>
+            <p class="small">This usually takes a few moments.</p>
+        </div>
+    </div>
+
+    <script>
+        // Poll every 3 seconds to check if matched
+        const sessionId = localStorage.getItem('session_id');
+
+        const checkMatch = setInterval(async () => {
+            const response = await fetch(`http://localhost:5000/api/find-circle/${sessionId}`);
+            const data = await response.json();
+
+            if (data.matched) {
+                localStorage.setItem('circle_id', data.circle_id);
+                clearInterval(checkMatch);
+                window.location.href = 'circle.html';
+            }
+        }, 3000);
+    </script>
+    <script src="js/cursor.js"></script>
+</body>
+
+</html>

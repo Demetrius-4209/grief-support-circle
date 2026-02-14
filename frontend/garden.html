@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Memorial Garden</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="garden-container fade-in">
+        <h1>Memorial Garden</h1>
+        <p class="subtitle">Leave a stone for others to find. Share what you learned today.</p>
+
+        <div class="add-stone">
+            <textarea id="stoneMessage" placeholder="Today I learned..." maxlength="200"></textarea>
+            <button id="placeStone" class="btn-primary">Place Your Stone</button>
+        </div>
+
+        <div class="stones-grid" id="stonesGrid">
+            <!-- Stones will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        // Load existing stones
+        async function loadStones() {
+            const response = await fetch('http://localhost:5000/api/memorial-garden');
+            const data = await response.json();
+
+            const grid = document.getElementById('stonesGrid');
+            grid.innerHTML = '';
+
+            data.stones.forEach(stone => {
+                const stoneDiv = document.createElement('div');
+                stoneDiv.className = 'stone';
+                stoneDiv.textContent = stone.message;
+                grid.appendChild(stoneDiv);
+            });
+        }
+
+        // Add new stone
+        document.getElementById('placeStone').addEventListener('click', async () => {
+            const message = document.getElementById('stoneMessage').value;
+
+            if (!message.trim()) {
+                alert('Please write a message');
+                return;
+            }
+
+            const response = await fetch('http://localhost:5000/api/memorial-stone', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message })
+            });
+
+            if (response.ok) {
+                document.getElementById('stoneMessage').value = '';
+                loadStones();
+            } else {
+                alert('Message could not be posted. Please keep it supportive.');
+            }
+        });
+
+        // Load stones on page load
+        loadStones();
+    </script>
+    <script src="js/cursor.js"></script>
+</body>
+
+</html>
